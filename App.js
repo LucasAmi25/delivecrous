@@ -1,33 +1,61 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,Image,Button,TouchableHighlight,TouchableOpacity} from 'react-native';
+import { SafeAreaView } from 'react-native-web';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import AccueilScreen from './Page/AccueilScreen';
+import Panier from './Page/Panier';
+
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <Header></Header>
+        <NavigationContainer >
+          <Stack.Navigator  initialRouteName="Delivecrous" >
+            <Stack.Screen  name="Delivecrous" component={AccueilScreen}
+            options={({ navigation, route }) => ({
+              headerRight: () => (
+                <TouchableOpacity style={styles.image} onPress={() => navigation.navigate('Panier')}>
+                  <Image source={require('./assets/chariot.png')} style={styles.image} />
+                </TouchableOpacity>
+              ),
+              headerStyle: {
+                backgroundColor: '#fdf7ef', // Couleur de fond de la barre de navigation
+              },
+              headerTitleStyle: {
+                marginLeft: 120,
+                textAlign: 'center', // Pour centrer le texte horizontalement
+              },
+            })}
+            />
+            <Stack.Screen name="Panier" component={Panier}
+            options={({ navigation, route }) => ({
+              headerTitleStyle: {
+                marginLeft: 90,
+                textAlign: 'center', // Pour centrer le texte horizontalement
+              },
+              headerStyle: {
+                backgroundColor: '#fdf7ef', // Couleur de fond de la barre de navigation
+              },
+            })}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
   )
 }
-const Header = props => {
-  return (
-    <View style={styles.header}>
-      <Text style={styles.headerTitle}>{props.title}</Text>
-    </View>
-  );
-};
 
 const styles = StyleSheet.create({
-  header: {
-    width: "100%",
-    height: 100,
-    paddingTop: 40,
-    backgroundColor: "#fdf7ef",
-    alignItems: "center",
-    justifyContent: "center",
-    position: "fixed",
-  },
   headerTitle: {
-    color: "white",
-    fontSize: 20
+    color: "black",
+    fontSize: 20,
+    marginLeft:"36%",
+  },
+  image: {
+    width: 30,
+    height: 30,
+    marginRight: "10%"
+  },
+  mainContent: {
+    marginTop: 110,
   }
 });
