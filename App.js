@@ -16,7 +16,7 @@ export default function App() {
             options={({ navigation, route }) => ({
               headerRight: () => (
                 <TouchableOpacity style={styles.image} onPress={() => navigation.navigate('Panier')}>
-                  <Image source={require('./assets/chariot.png')} style={styles.image} />
+                  <Image source={require('./assets/utilisateur.png')} style={styles.image} />
                 </TouchableOpacity>
               ),
               headerStyle: {
