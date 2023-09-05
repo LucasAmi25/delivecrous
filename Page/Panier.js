@@ -5,7 +5,7 @@ import { View, Text, Button } from 'react-native';
 function Panier({ navigation }) {
   return (
     <View>
-      <Text>panier</Text>
+      <Text>ok</Text>
     </View>
   );
 }
