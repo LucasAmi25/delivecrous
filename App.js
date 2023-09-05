@@ -4,7 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AccueilScreen from './Page/AccueilScreen';
 import Panier from './Page/Panier';
-import Home from './Home';
+import Home from './Page/Home';
+import Auth from './Page/Auth';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +16,7 @@ export default function App() {
             <Stack.Screen  name="Delivecrous" component={Home}
             options={({ navigation, route }) => ({
               headerRight: () => (
-                <TouchableOpacity style={styles.image} onPress={() => navigation.navigate('Panier')}>
+                <TouchableOpacity style={styles.image} onPress={() => navigation.navigate('Auth')}>
                   <Image source={require('./assets/utilisateur.png')} style={styles.image} />
                 </TouchableOpacity>
               ),
@@ -28,7 +29,7 @@ export default function App() {
               },
             })}
             />
-            <Stack.Screen name="Panier" component={Panier}
+            <Stack.Screen name="Auth" component={Auth}
             options={({ navigation, route }) => ({
               headerTitleStyle: {
                 marginLeft: 90,
