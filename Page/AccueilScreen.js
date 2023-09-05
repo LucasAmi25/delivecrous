@@ -2,6 +2,8 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet,TouchableOpacity, Image } from 'react-native';
 
+
+
 function AccueilScreen({ navigation }) {
   return (
     <View style={styles.container}>
@@ -9,6 +11,7 @@ function AccueilScreen({ navigation }) {
         <Text style={styles.textButton}>Voir le panier </Text>
         <Image source={require('../assets/chariot.png')} style={styles.image} />
       </TouchableOpacity>
+      
     </View>
   );
 }

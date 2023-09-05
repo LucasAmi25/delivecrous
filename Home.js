@@ -7,13 +7,6 @@ export default function Home() {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
-        <View style={styles.header}>
-          <View style={styles.left}></View>
-          <Text style={styles.headerText}>Delivecrous</Text>
-          <TouchableOpacity style={styles.cartButton}>
-            <Ionicons name="cart" size={24} color="black" />
-          </TouchableOpacity>
-        </View>
         <ScrollView>
           <Text style={styles.title}>La carte</Text>
           {menuItems.map((item, index) => (

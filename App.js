@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AccueilScreen from './Page/AccueilScreen';
 import Panier from './Page/Panier';
-
+import Home from './Home';
 
 const Stack = createStackNavigator();
 
@@ -12,7 +12,7 @@ export default function App() {
   return (
         <NavigationContainer >
           <Stack.Navigator  initialRouteName="Delivecrous" >
-            <Stack.Screen  name="Delivecrous" component={AccueilScreen}
+            <Stack.Screen  name="Delivecrous" component={Home}
             options={({ navigation, route }) => ({
               headerRight: () => (
                 <TouchableOpacity style={styles.image} onPress={() => navigation.navigate('Panier')}>
