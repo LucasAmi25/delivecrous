@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, TextInput, View } from 'react-native';
 
-const Auth = () => {
+export default function Auth({ navigation }){
   return (
     <View style={styles.authContainer}>
       <Text style={styles.title}>Page de connexion</Text>
       <TextInput style={styles.input} placeholder="Nom d'utilisateur" />
       <TextInput style={styles.input} placeholder="Mot de passe" secureTextEntry={true} />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => {/* Logique d'authentification */}}>
+        <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate('Home') }}>
           <Text style={styles.buttonText}>Se connecter</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => {/* navigation.navigate('Inscription') */}}>
@@ -79,9 +79,3 @@ const styles = StyleSheet.create({
     fontSize: 16, // Réduit la taille du texte
   },
 });
-
-export default function Home(){
-    return(
-        <Auth/>
-    )
-}

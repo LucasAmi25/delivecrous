@@ -45,13 +45,13 @@ export default function Home({ navigation }) {
 
 const menuItems = [
   {
-    image: require('./assets/image1.png'),
+    image: require('../assets/image1.png'),
     title: 'Menu 1',
     description: 'Description du menu 1',
     allergens: 'Allergène 1, Allergène 2',
   },
   {
-    image: require('./assets/image2.png'),
+    image: require('../assets/image2.png'),
     title: 'Menu 2',
     description: 'Description du menu 2',
     allergens: 'Allergène 3, Allergène 4',
