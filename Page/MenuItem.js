@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-export default function MenuItem({ item }) {
+function MenuItem({ item, navigation, addToCart, removeFromCart }) {
+
+  const [selected, setSelected] = useState(false);
+
+  const handleSelect = () => {
+    setSelected(prevSelected => !prevSelected);
+    if (!selected) {
+      addToCart(item);
+    } else {
+      removeFromCart(item)
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Image source={item.image} style={styles.image} />
       <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.description}>{item.description}</Text>
-      <TouchableOpacity style={styles.button}>
+      
+      <TouchableOpacity 
+        style={styles.button} 
+        onPress={() => navigation.navigate('MenuDetails', { item })}>
+        <Text style={styles.buttonText}>Détails</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        style={[styles.button, selected && {backgroundColor: 'green'}]}
+        onPress={handleSelect}>
         <Text style={styles.buttonText}>Sélectionner</Text>
       </TouchableOpacity>
     </View>
@@ -47,3 +69,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
+export default MenuItem;
