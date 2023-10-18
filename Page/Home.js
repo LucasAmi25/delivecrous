@@ -16,17 +16,16 @@ export default function Home({ navigation }) {
     setCart((prevCart) => prevCart.filter((cartItem) => cartItem !== item));
   };  
 
+  
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Delivecrous</Text>
+      
         <TouchableOpacity 
         style={styles.cartButton}
-        onPress={() => navigation.navigate('Panier', { panierItems: cart })}
+        onPress={() => navigation.navigate('Panier', { panierItems: cart,navigation })}
         >
           <Ionicons name="cart" size={24} color="black" />
         </TouchableOpacity>
-      </View>
       <ScrollView>
         <Text style={styles.title}>La carte</Text>
         {menuItems.map((item, index) => (

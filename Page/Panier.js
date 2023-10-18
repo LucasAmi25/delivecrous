@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, Button } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Button,TouchableOpacity } from 'react-native';
 
-function Panier({ route }) {
+function Panier({ route,navigation }) {
   const { panierItems } = route.params;
 
   return (
@@ -17,7 +17,10 @@ function Panier({ route }) {
           </View>
         )}
       />
-      {/* Ajouter un bouton pour passer à la caisse ou effectuer d'autres actions ici si nécessaire */}
+       <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('CommandeValide',navigation) }}>
+          <Text style={styles.buttonText}>Valider achat</Text>
+        </TouchableOpacity>
+      
     </View>
   );
 }
@@ -41,6 +44,20 @@ const styles = StyleSheet.create({
   itemTitle: {
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  button: {
+    backgroundColor: '#7b38d8',
+    borderRadius: 10,
+    borderColor: '#cccccc',
+    borderWidth: 4,
+    width: '48%', // Réduit la largeur des boutons
+    padding: 10, // Réduit la taille du padding
+    alignItems: 'center',
+    marginVertical: 5, // Espace les boutons verticalement
+  },
+  buttonText: {
+    color: '#eeeeee',
+    fontSize: 16, // Réduit la taille du texte
   },
 });
 

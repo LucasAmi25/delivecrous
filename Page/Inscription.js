@@ -1,17 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, TextInput, View } from 'react-native';
 
-export default function Auth({ navigation }){
+export default function Inscription({ navigation }){
   return (
     <View style={styles.authContainer}>
       <Text style={styles.title}>Page de connexion</Text>
       <TextInput style={styles.input} placeholder="Nom d'utilisateur" />
+      
+      <TextInput style={styles.input} placeholder="Nom d'utilisateur" />
+      <TextInput style={styles.input} placeholder="Pseudo" />
       <TextInput style={styles.input} placeholder="Mot de passe" secureTextEntry={true} />
+      <TextInput style={styles.input} placeholder="Solde" />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate('Home',{navigation}) }}>
+        <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate('Auth') }}>
           <Text style={styles.buttonText}>Se connecter</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Inscription') }}>
+        <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate('Auth') }}>
           <Text style={styles.buttonText}>S'inscrire</Text>
         </TouchableOpacity>
       </View>
