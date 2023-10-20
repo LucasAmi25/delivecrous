@@ -24,3 +24,5 @@ Nous n'avons pas implémenté les fonctionnalités suivantes :
     L'ajout de fonctionnalités supplémentaires.
 
 J'ai ajouté des commentaires partout où des requêtes devaient être effectuées. Nous avons essayé de résoudre le problème lié à la "CORS POLICY", mais nous n'avons pas réussi. Par conséquent, les requêtes fonctionnent depuis des logiciels tiers comme Postman, mais pas directement depuis le code. Pour plus d'informations, consultez le readme du backend.
+
+Pour ce qui est des fichiers le fichier qui permet de faire le routing et envoyer la première page est "App.js" directement dans à la racine du projet et le reste se trouve dans le repertoire "/Pages/"
