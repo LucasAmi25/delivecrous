@@ -8,7 +8,9 @@ export default function Auth({ navigation }){
       <TextInput style={styles.input} placeholder="Nom d'utilisateur" />
       <TextInput style={styles.input} placeholder="Mot de passe" secureTextEntry={true} />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate('Home',{navigation}) }}>
+        <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate('Home',{navigation}) 
+        //créer ta requete pour se connecter. Si la personne est bien autentifié, envoyé vers page home comme si dessus avec le token en parametre à coté de "navigation"
+      }}>
           <Text style={styles.buttonText}>Se connecter</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Inscription') }}>

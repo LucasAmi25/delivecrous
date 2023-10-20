@@ -55,7 +55,11 @@ export default function App() {
               <Image source={require('./assets/utilisateur.png')} style={styles.image} />
             </TouchableOpacity>
           ),
-          headerLeft: ()=> null,
+          headerLeft: () => (
+            <TouchableOpacity style={styles.image2} onPress={() => navigation.navigate('Panier',{navigation,user})}>
+              <Image source={require('./assets/chariot.png')} style={styles.image2} />
+            </TouchableOpacity>
+          ),
         })}
         
        
@@ -86,7 +90,17 @@ export default function App() {
           
           
         }}/>
-        <Stack.Screen name="Panier" component={Panier} /> 
+        <Stack.Screen name="Panier" component={Panier} options={{  
+          
+          title: 'Panier',
+          headerStyle: {
+            backgroundColor: '#7b38d8',
+  
+          },
+          headerTitleAlign: 'center',
+          
+          
+        }}/> 
         <Stack.Screen name="CommandeValide" component={CommandeValidee} options={{  
           
           title: 'Validation',
@@ -114,6 +128,11 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     marginRight: "10%"
+  },
+  image2: {
+    width: 30,
+    height: 30,
+    marginLeft: "10%"
   },
   mainContent: {
     marginTop: 110,

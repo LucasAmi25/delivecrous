@@ -1,29 +1,45 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, Button,TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 
-function Panier({ route,navigation }) {
-  const { panierItems } = route.params;
+const panierItems = [
+  {
+    image: require('../assets/image1.png'),
+    title: 'Menu 1',
+    description: 'Description du menu 1',
+    allergens: 'Allergène 1, Allergène 2',
+  },
+  {
+    image: require('../assets/image2.png'),
+    title: 'Menu 2',
+    description: 'Description du menu 2',
+    allergens: 'Allergène 3, Allergène 4',
+  }
+];
 
+function Panier({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Panier</Text>
-      <FlatList 
+      <FlatList
         data={panierItems}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.panierItem}>
+            <Image source={item.image} style={styles.itemImage} />
             <Text style={styles.itemTitle}>{item.title}</Text>
+            <Text style={styles.itemDescription}>{item.description}</Text>
+            <Text style={styles.itemAllergens}>{item.allergens}</Text>
             {/* Vous pouvez afficher d'autres détails de l'article ici si nécessaire */}
           </View>
         )}
       />
-       <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('CommandeValide',navigation) }}>
-          <Text style={styles.buttonText}>Valider achat</Text>
-        </TouchableOpacity>
-      
+      <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('CommandeValide', { panierItems }) }}>
+        <Text style={styles.buttonText}>Valider achat</Text>
+      </TouchableOpacity>
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

@@ -1,21 +1,45 @@
-import React from 'react';
+import React,{ useState,Component } from 'react';
+import axios from 'axios';
 import { StyleSheet, Text, TouchableOpacity, TextInput, View } from 'react-native';
 
+function createUser(pnom,pprenom,pusername,pmdp,psolde){
+  const apiUrl = 'http://localhost:8080/delivecrous/users/create';
+
+  const utilisateur = {
+    nom: 'Dupont',
+    prenom: 'Jean',
+    username: 'jdupont',
+    password: 'motdepasse123',
+    solde: 1000.50
+  };
+  
+}
+
 export default function Inscription({ navigation }){
+  const [nom, setNom] = useState('');
+  const [prenom, setPrenom] = useState('');
+  const [pseudo, setPseudo] = useState('');
+  const [motDePasse, setMotDePasse] = useState('');
+  const [solde, setSolde] = useState('');
   return (
     <View style={styles.authContainer}>
       <Text style={styles.title}>Page de connexion</Text>
-      <TextInput style={styles.input} placeholder="Nom d'utilisateur" />
-      
-      <TextInput style={styles.input} placeholder="Nom d'utilisateur" />
-      <TextInput style={styles.input} placeholder="Pseudo" />
-      <TextInput style={styles.input} placeholder="Mot de passe" secureTextEntry={true} />
-      <TextInput style={styles.input} placeholder="Solde" />
+      <TextInput style={styles.input} value={nom} placeholder="Nom" onChangeText={text => setNom(text)}/>
+      <TextInput style={styles.input} placeholder="Prenom" value={prenom} onChangeText={text => setPrenom(text)}/>
+      <TextInput style={styles.input} placeholder="Pseudo" value={pseudo}
+        onChangeText={text => setPseudo(text)}/>
+      <TextInput style={styles.input} placeholder="Mot de passe" secureTextEntry={true} value={motDePasse}
+        onChangeText={text => setMotDePasse(text)}/>
+      <TextInput style={styles.input} placeholder="Solde" value={solde}
+        onChangeText={text => setSolde(text)}/>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate('Auth') }}>
+        <TouchableOpacity style={styles.button} onPress={() => {
+          navigation.navigate('Auth') //envoie faire la page de connexion
+          }}>
           <Text style={styles.buttonText}>Se connecter</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate('Auth') }}>
+        <TouchableOpacity style={styles.button} onPress={() => {createUser(nom,prenom,pseudo,motDePasse,solde)//tu dois faire la requete pour créer un user
+        }}> 
           <Text style={styles.buttonText}>S'inscrire</Text>
         </TouchableOpacity>
       </View>
