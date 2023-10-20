@@ -11,7 +11,7 @@ import UserDetails  from './Page/User';
 import CommandeValidee from './Page/PageValide';
 
 const Stack = createStackNavigator();
-const user = { nom: "Senez", prenom: "Lucas" , username : "Ami", solde : 1050 };
+
 
 export default function App() {
   
@@ -51,12 +51,12 @@ export default function App() {
           },
           headerTitleAlign: 'center',
           headerRight: () => (
-            <TouchableOpacity style={styles.image} onPress={() => navigation.navigate('UserDetails',{navigation,user})}>
+            <TouchableOpacity style={styles.image} onPress={() => navigation.navigate('UserDetails',{navigation})}>
               <Image source={require('./assets/utilisateur.png')} style={styles.image} />
             </TouchableOpacity>
           ),
           headerLeft: () => (
-            <TouchableOpacity style={styles.image2} onPress={() => navigation.navigate('Panier',{navigation,user})}>
+            <TouchableOpacity style={styles.image2} onPress={() => navigation.navigate('Panier',{navigation})}>
               <Image source={require('./assets/chariot.png')} style={styles.image2} />
             </TouchableOpacity>
           ),

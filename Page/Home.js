@@ -26,12 +26,13 @@ export default function Home({ navigation }) {
   const addToCart = (item) => {
     setCart([...cart, item]);
   };
-
+//remplacer add to Cart par une requete qui ajoute la commande
   const removeFromCart = (item) => {
     setCart((prevCart) => prevCart.filter((cartItem) => cartItem !== item));
   };  
-
+//remplacer add to Cart par une requete qui supprime la commande
   const options = ["None","Allergène 1", "Allergène 2", "Allergène 3","Allergène 4"];
+  //remplacer options par une requete qui donne les allergenes
   const [selectedAllergen, setSelectedAllergen] = useState("None");
 
   // Fonction pour filtrer les éléments du menu en fonction de l'allergène sélectionné

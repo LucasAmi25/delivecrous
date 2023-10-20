@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { StyleSheet,  TouchableOpacity, ScrollView, Image, SafeAreaView } from 'react-native';
 
-const UserDetails = ({ navigation,route }) => {
-  const { user } = route.params;
-
+const UserDetails = ({ navigation }) => {
+  const user = { nom: "Senez", prenom: "Lucas" , username : "Ami", solde : 1050 };
+  //changer le user par une requete qui récupère le vrai user et par une variable fix
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Nom : {user.nom}</Text>

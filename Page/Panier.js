@@ -15,7 +15,7 @@ const panierItems = [
     allergens: 'Allergène 3, Allergène 4',
   }
 ];
-
+//changer panierItems par une requete qui donne le panier de l'utilisateur
 function Panier({ navigation }) {
   return (
     <View style={styles.container}>
@@ -25,7 +25,6 @@ function Panier({ navigation }) {
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.panierItem}>
-            <Image source={item.image} style={styles.itemImage} />
             <Text style={styles.itemTitle}>{item.title}</Text>
             <Text style={styles.itemDescription}>{item.description}</Text>
             <Text style={styles.itemAllergens}>{item.allergens}</Text>
